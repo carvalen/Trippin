@@ -21,97 +21,83 @@ Trippin is an API where it helps you to organize what you need in your suitcase 
  
 User profile:
 - Download/Share list.
-- Add favourite lists.
-- Edit profile
+- Edit user profile.
  
 Homepage
 - Dark version.
  
-## ROUTES:
+# Client / Frontend
+
+## React Router Routes (React App)
+| Path                      | Component            | Permissions                 | Behavior                                                                             |
+| ------------------------- | -------------------- | --------------------------- | ------------------------------------------------------------------------------------ |
+| `/`                       | HomePage             | public `<Route>`            | Home page                                                                            |
+| `/signup`                 | SignupPage           | anon only  `<AnonRoute>`    | Signup form, link to login, navigate to homepage after signup                        |
+| `/login`                  | LoginPage            | anon only `<AnonRoute>`     | Login form, link to signup, navigate to homepage after login                         |
+| `/logout`                 | LogoutPage           | anon only `<AnonRoute>`     | Logout page with option of login again                                               |
+| `/trip`                   | TripPage             | user only `<PrivateRoute>`  | Page that shows options.                                                             |
+| `/profile`                | ProfilePage          | user only  `<PrivateRoute>` | Shows the user profile, that also renders an edit form and the result of the options |
+| `/projects/:id`           | ProjectDetailPage    | user only `<PrivateRoute>`  | Page with a list and a form to add new list                                          |
+
+                                         
+
+
+## Components
+
+- HomePage
  
-- GET / 
-  - renders the homepage
-- GET /auth/signup
-  - redirects to / if user logged in
-  - renders the signup form (with flash msg)
-- POST /auth/signup
-  - redirects to / if user logged in
-  - body:
-    - username
-    - email
-    - password
-- GET /auth/login
-  - redirects to / if user logged in
-  - renders the login form (with flash msg)
-- POST /auth/login
-  - redirects to / if user logged in
-  - body:
-    - username
-    - password
-- POST /auth/logout
-  - body: (empty)
-- GET /my-profile
-  - Renders profile/view
-  - URL /list/edit
-  - URL /list/create
+- LoginPage
+
+- SignupPage
+
+- LogoutPage
+
+- Trips options page  
+  * Types of travels
+  * Days of travel
+
+- AddListForm
+
+- ProfilePage
+  * EditForm
+  * TripList
+  * AddListForm
+  * DeleteListButton
   
-- GET /list
-  - renders the  list 
--Get /list/create
-  - render list-form-create 
-- POST /list/create 
-  - body: 
-   - name
-- POST /list/edit 
-  - Render list-form-edit
-  - Update and add list info
- 
-- GET /list/:id
-  - renders the view and details of the list 
-  - favorite button (backlog)
-- POST /list/:id/favourites
--Add id list to user profile
+- ProfilePage
+  * EditProfileForm
+  * 
+
+- Routes
+  * AnonRoute
+  * PrivateRoute
+
+- Common
+  * Navbar
+  * Footer
+
+-Models
+ * User
+ * List
+ * Plantilla
+
+
+## Services
+
+- Auth Service
+  - authApi.login(user)
+  - authApi.signup(user)
+  - authApi.logout()
+
+- List Service
+  - projectsApi.trips()
+  - projectsApi.addlist(list)
+  - projectsApi.getListDetails(listId)
+  - projectsApi.editList(listId, listBody)
+  - projectsApi.deleteList(listId)
   
 
-  
-  ## VIEWS
-  
- -Auth
-    -logIn
-    -signUp
-    -logOut
-   
- -Home:  
-   -Index
-   -Layout
-   -Error
- 
-  
-  ## Models
-
--User model:
-  email: {
-    type: String,
-    require: true,
-    unique: true,
-  },
-  username: {
-  type: String,
-  require: true,
-    unique: true,
-  },
-  hashedPassword: {
-    type: String,
-    require: true,
-  },
-  
-
--List model:
-  
-  title: {
-    type: String,
-    required: true,
-  }
+<br>
   
   
   ## Links
