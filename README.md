@@ -110,7 +110,7 @@ https://trello.com/b/o6ZUr581/trippin
  
 https://github.com/carvalen/Trippin
 
-###Wireframes:
+### Wireframes
 https://www.figma.com/file/EKhZ11hPHqUUgfuMK6GDmw/Trippin?node-id=0%3A1
 
 
