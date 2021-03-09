@@ -10,7 +10,7 @@ require("./configs/session.config");
 //routes
 
 const authRoutes = require("./routes/auth.routes");
-app.use("/auth/", authRoutes);
+app.use("/auth", authRoutes);
 const listRoutes = require("./routes/list.routes");
 app.use("/api/list", listRoutes);
 const templateRoutes = require("./routes/template.routes");
