@@ -12,8 +12,12 @@ exports.getList = async (req, res) => {
 };
 
 exports.createList = async (req, res) => {
-  const list = await List.create(req.body);
+    console.log(req.session);
+const userId = req.session.userId;
+  const list = await List.create({...req.body, user: userId});
+  await User.findByIdAndUpdate(userId, { lists: { $push: list._id }});
   res.status(200).json(list);
+  //paso las listas al usuario conectado 
 };
 
 exports.updateList = async (req, res) => {
@@ -27,3 +31,6 @@ exports.deleteList = async (req, res) => {
   await List.findOneAndDelete(listId);
   res.status(200).json({ message: "List removed", listId });
 };
+
+
+//try catch

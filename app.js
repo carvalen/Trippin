@@ -10,9 +10,12 @@ require("./configs/session.config");
 //routes
 
 const authRoutes = require("./routes/auth.routes");
-app.use("/", authRoutes);
+app.use("/auth/", authRoutes);
 const listRoutes = require("./routes/list.routes");
-app.use("/list", listRoutes);
+app.use("/api/list", listRoutes);
+const templateRoutes = require("./routes/template.routes");
+app.use("/api/template", templateRoutes);
+
 
 app.listen(process.env.PORT, () => console.log("server running"));
 

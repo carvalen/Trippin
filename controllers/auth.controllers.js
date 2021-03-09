@@ -40,6 +40,7 @@ exports.login = async (req, res) => {
     if (!hasCorrectPassword) {
       return res.send(401).json({ message: "unauthorize" });
     }
+    req.session.userId = user._id;
     return res.send(200).json({ user: user.email });
   } catch (e) {
     return res.send(400).json({ message: "wrong request" });
