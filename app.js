@@ -17,5 +17,5 @@ const templateRoutes = require("./routes/template.routes");
 app.use("/api/template", templateRoutes);
 
 
-app.listen(process.env.PORT, () => console.log("server running"));
+app.listen(process.env.PORT, () => console.log("Server running on port 4000"));
 

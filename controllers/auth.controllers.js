@@ -46,3 +46,9 @@ exports.login = async (req, res) => {
     return res.send(400).json({ message: "wrong request" });
   }
 };
+
+exports.logout = async (req, res) => {
+  await req.session.destroy();
+  res.status(200).json({ message: "logout" });
+};
+
