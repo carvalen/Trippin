@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const TemplateSchema = new mongoose.Schema({
 
     type: String,
-    days: String,
+    days: Number,
     items: [String],
     
 },
