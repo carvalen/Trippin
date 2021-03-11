@@ -1,6 +1,6 @@
 const { Router } = require("express");
 const route = Router();
-const { withAuth } = require("../middlewares/withAuth");
+// const { withAuth } = require("../middlewares/withAuth");
 const {
   login,
   signup,
@@ -12,6 +12,6 @@ route
   .post("/signup", signup)
   .post("/login", login)
   .post("/logout", logout)
-  .get("/", withAuth, getUser);
+  .get("/", getUser);
 
 module.exports = route;

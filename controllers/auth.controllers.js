@@ -1,15 +1,17 @@
 const User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
-const {
-  hasCorrectPasswordFormat,
-  isMongoError,
-  isMongooseErrorValidation,
-} = require("../utils/validators.utils");
+// const {
+//   hasCorrectPasswordFormat,
+//   isMongoError,
+//   isMongooseErrorValidation,
+// } = require("../utils/validators.utils");
+
+
 
 exports.signup = async (req, res) => {
   try {
-    const { password, email } = req.body;
-    const hasMissingCredentials = !password || !email;
+    const { username, password, email } = req.body;
+    const hasMissingCredentials = !username || !password || !email;
     console.log("body", req.body)
     if (hasMissingCredentials) {
       return res.status(400).json({ message: "Missing credentials" });
@@ -22,13 +24,13 @@ exports.signup = async (req, res) => {
     const user = await User.findOne({ email });
 
     if (user) {
-      return res.status(400).json({ message: "User alredy exists" });
+      return res.status(400).json({ message: "User already exists" });
     }
 
     const saltRounds = 10;
     const salt = await bcrypt.genSalt(saltRounds);
     const hashedPassword = await bcrypt.hash(password, salt);
-    const newUser = await User.create({ email, hashedPassword });
+    const newUser = await User.create({ username, email, hashedPassword });
 
     req.session.userId = newUser._id;
 
@@ -84,8 +86,8 @@ exports.logout = async (req, res) => {
   res.status(200).json({ message: "logout" });
 };
 
-exports.getUser = async (req, res) => {
-  const { userId } = req.session;
-  const { email, _id } = await User.findOne(userId);
-  res.status(200).json({ id: _id, email });
-};
+ exports.getUser = async (req, res) => {
+   const { userId } = req.session;
+   const { email, _id } = await User.findOne(userId);
+   res.status(200).json({ id: _id, email });
+ };
