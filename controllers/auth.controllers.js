@@ -14,9 +14,9 @@ exports.signup = async (req, res) => {
       return res.status(400).json({ message: "Missing credentials" });
     }
 
-    // if (!hasCorrectPasswordFormat(password)) {
-    //   return res.status(400).json({ message: "Incorrect password format" });
-    // }
+     if (!hasCorrectPasswordFormat(password)) {
+       return res.status(400).json({ message: "Incorrect password format" });
+     }
 
     const user = await User.findOne({ email });
 
@@ -29,7 +29,7 @@ exports.signup = async (req, res) => {
     const hashedPassword = await bcrypt.hash(password, salt);
     const newUser = await User.create({ username, email, hashedPassword });
 
-    // req.session.userId = newUser._id;
+     req.session.userId = newUser._id;
 
     return res.status(200).json({ user: newUser.email, id: newUser._id });
   } catch (e) {
@@ -45,36 +45,25 @@ exports.signup = async (req, res) => {
 
 exports.login = async (req, res) => {
   try {
-    const { password, email } = req.body;
-    const hasMissingCredentials = !password || !email;
+    const { username, password, email } = req.body;
+    const hasMissingCredentials = !username || !password || !email;
     if (hasMissingCredentials) {
-      return res.status(400).json({ message: "Missing credentials" });
+      return res.send(400).json({ message: "missing credentials" });
     }
-
-    if (!hasCorrectPasswordFormat(password)) {
-      return res.status(400).json({ message: "Incorrect password format" });
-    }
-
     const user = await User.findOne({ email });
     if (!user) {
-      return res.status(400).json({ message: "User does not exist" });
+      return res.send(400).json({ message: "user does not exist" });
     }
     const hasCorrectPassword = await bcrypt.compare(
       password,
       user.hashedPassword
     );
     if (!hasCorrectPassword) {
-      return res.status(401).json({ message: "Unauthorize" });
+      return res.send(401).json({ message: "unauthorize" });
     }
-
-    req.session.userId = user._id;
-
-    return res.status(200).json({ user: user.email, id: user._id });
+    return res.send(200).json({ user: user.email });
   } catch (e) {
-    if (isMongooseErrorValidation(e)) {
-      return res.status(400).json({ message: "Incorrect email format" });
-    }
-    return res.status(400).json({ message: "Wrong request" });
+    return res.send(400).json({ message: "wrong request" });
   }
 };
 
