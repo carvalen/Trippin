@@ -8,10 +8,17 @@ const {
   getUser,
 } = require("../controllers/auth.controllers");
 
+function isLoggedIn(req, res, next) {
+  if(req.session.currentUser) next();
+  else res.redirect('/login');
+}
+
+
+
 route
   .post("/signup", signup)
   .post("/login", login)
   .post("/logout", logout)
-   .get("/", getUser);
+   .get("/",isLoggedIn, getUser);
 
 module.exports = route;
