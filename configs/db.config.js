@@ -13,4 +13,4 @@ module.exports = async () => {
   console.log("connected to mongo");
 };
 ///dU5EQmE3wdtIbmzk 
-//mongodb+srv://trippin-app:<password>@cluster0.yydqr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority
+//mongodb+srv://trippin-app:dU5EQmE3wdtIbmzk@cluster0.yydqr.mongodb.net/trippinDB?retryWrites=true&w=majority
