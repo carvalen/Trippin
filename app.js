@@ -1,16 +1,15 @@
 require("dotenv").config();
 const express = require("express");
-const bodyParser = require ("body-parser")
+const bodyParser = require("body-parser");
 const app = express();
 
-
 // middleware configurations
-require("./configs/db.config")(app);
+require("./configs/db.config")();
 require("./configs/middleware.config")(app);
 require("./configs/session.config")(app);
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}))
+app.use(bodyParser.urlencoded({ extended: true }));
 //routes
 
 const authRoutes = require("./routes/auth.routes");
@@ -20,6 +19,4 @@ app.use("/api/list", listRoutes);
 const templateRoutes = require("./routes/template.routes");
 app.use("/api/template", templateRoutes);
 
-
 app.listen(process.env.PORT, () => console.log("Server running on port 4000"));
-
