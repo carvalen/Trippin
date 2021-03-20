@@ -4,7 +4,8 @@
   "description": "## Description Trippin is an API where it helps you to organize what you need in your suitcase for your next trip.",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon app.js"
+    "dev": "nodemon app.js",
+    "start": "node app.js"
   },
   "repository": {
     "type": "git",

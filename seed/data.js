@@ -45,49 +45,49 @@ module.exports = [{
     
 },
 {
-    type: "Montaña",
+    type: "Rural",
     days : 3,
     items: "Gorra, Gafas de sol, Crema solar, Chaqueta de lluvia, Botas, Mochila, Snacks, Agua, Calcetines, Kit supervivencia, Cámara de fotos, Toalla ",
     
 },
 {
-    type: "Montaña",
+    type: "Rural",
     days : 3,
     items: "Gorra, Gafas de sol, Crema solar, Chaqueta de lluvia, Botas, Mochila, Snacks, Agua, Calcetines, Kit supervivencia, Cámara de fotos, Toalla ",
     
 },
 {
-    type: "Montaña",
+    type: "Rural",
     days : 3,
     items: "Gorra, Gafas de sol, Crema solar, Chaqueta de lluvia, Botas, Mochila, Snacks, Agua, Calcetines, Kit supervivencia, Cámara de fotos, Toalla ",
     
 },
 {
-    type: "Montaña",
+    type: "Rural",
     days : 3,
     items: "Gorra, Gafas de sol, Crema solar, Chaqueta de lluvia, Botas, Mochila, Snacks, Agua, Calcetines, Kit supervivencia, Cámara de fotos, Toalla ",
     
 },
 {
-    type: "Montaña",
+    type: "Rural",
     days : 7,
     items: "Gorra, Gafas de sol, Crema solar, Chaqueta de lluvia, Botas, Mochila, Snacks, Agua, Calcetines, Kit supervivencia, Cámara de fotos, Toalla, Neceser, Cargador, Juego de mesa, Pijama, Cacao, Cepillo de dientes, Cepillo del pelo, Pasta dental, Champú, Gel, Cortauñas, Desodorante ",
     
 },
 {
-    type: "Montaña",
+    type: "Rural",
     days : 7,
     items: "Gorra, Gafas de sol, Crema solar, Chaqueta de lluvia, Botas, Mochila, Snacks, Agua, Calcetines, Kit supervivencia, Cámara de fotos, Toalla, Neceser, Cargador, Juego de mesa, Pijama, Cacao, Cepillo de dientes, Cepillo del pelo, Pasta dental, Champú, Gel, Cortauñas, Desodorante ",
     
 },
 {
-    type: "Montaña",
+    type: "Rural",
     days : 7,
     items: "Gorra, Gafas de sol, Crema solar, Chaqueta de lluvia, Botas, Mochila, Snacks, Agua, Calcetines, Kit supervivencia, Cámara de fotos, Toalla, Neceser, Cargador, Juego de mesa, Pijama, Cacao, Cepillo de dientes, Cepillo del pelo, Pasta dental, Champú, Gel, Cortauñas, Desodorante ",
     
 },
 {
-    type: "Montaña",
+    type: "Rural",
     days : 7,
     items: "Gorra, Gafas de sol, Crema solar, Chaqueta de lluvia, Botas, Mochila, Snacks, Agua, Calcetines, Kit supervivencia, Cámara de fotos, Toalla, Neceser, Cargador, Juego de mesa, Pijama, Cacao, Cepillo de dientes, Cepillo del pelo, Pasta dental, Champú, Gel, Cortauñas, Desodorante ",
     
@@ -95,7 +95,7 @@ module.exports = [{
 {
     type: "Camping",
     days : 3,
-    items: "Tienda de campaña, Saco de dormir, Champú, Gel, Neceser, Toalla, Cepillo de dientes, Cepillo pelo, Piajam, Ropa interior, Calzado cómodo, Botella de agua, Snacks ",
+    items: "Tienda de campaña, Saco de dormir, Champú, Gel, Neceser, Toalla, Cepillo de dientes, Cepillo pelo, Pijama, Ropa interior, Calzado cómodo, Botella de agua, Snacks ",
     
 },
 {
