@@ -1,4 +1,5 @@
 const List = require("../models/list.model");
+const User = require("../models/user.model");
 
 exports.getLists = async (req, res) => {
   try{
@@ -21,9 +22,10 @@ exports.getList = async (req, res) => {
 
 exports.createList = async (req, res) => {
     try{
+      console.log("createlist", req.session.userId, req.body)
 const userId = req.session.userId;
   const list = await List.create({...req.body, user: userId});
-  await User.findByIdAndUpdate(userId, { lists: { $push: list._id }});
+  await User.findByIdAndUpdate(userId, { $push: { lists: list._id }});
   res.status(200).json(list);
   //paso las listas al usuario conectado 
 }catch (err) {

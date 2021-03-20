@@ -68,6 +68,6 @@ exports.logout = async (req, res) => {
 
 exports.getUser = async (req, res) => {
   const { userId } = req.session;
-  const { email, _id } = await User.findOne(userId);
-  res.status(200).json({ id: _id, email });
+  const user = await User.findOne({_id:userId}).populate("lists");
+  res.status(200).json(user);
 };
