@@ -5,8 +5,8 @@ const app = express();
 
 // middleware configurations
 require("./configs/db.config")();
-require("./configs/middleware.config")(app);
 require("./configs/session.config")(app);
+require("./configs/middleware.config")(app);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
