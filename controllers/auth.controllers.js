@@ -7,13 +7,13 @@ exports.signup = async (req, res) => {
     const hasMissingCredentials = !username || !password || !email;
 
     if (hasMissingCredentials) {
-      return res.status(400).json({ message: "Missing credentials" });
+      return res.status(400).json({ message: "Error de credenciales, prueba de nuevo." });
     }
 
     const user = await User.findOne({ email });
 
     if (user) {
-      return res.status(400).json({ message: "User already exists" });
+      return res.status(400).json({ message: "El usuario ya existe." });
     }
 
     const saltRounds = 10;
@@ -29,7 +29,7 @@ exports.signup = async (req, res) => {
 
     return res.status(200).json({ user: newUser.email, id: newUser._id });
   } catch (e) {
-    return res.status(400).json({ message: "Wrong request", error: e });
+    return res.status(400).json({ message: "Error en respuesta", error: e });
   }
 };
 
