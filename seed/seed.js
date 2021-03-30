@@ -14,7 +14,6 @@ async function seedDb(){
     try {
         await mongoose.connect(process.env.MONGODB_URI, dbOptions)
         const templates = await Template.create(data)
-        console.log(templates)
         mongoose.connection.close()
     }catch(err){
         console.error(err)

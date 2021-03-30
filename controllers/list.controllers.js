@@ -27,7 +27,6 @@ const userId = req.session.userId;
   const list = await List.create({...req.body, user: userId});
   await User.findByIdAndUpdate(userId, { $push: { lists: list._id }});
   res.status(200).json(list);
-  //paso las listas al usuario conectado 
 }catch (err) {
   console.log(err);
 }

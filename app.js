@@ -3,14 +3,13 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 
-// middleware configurations
 require("./configs/db.config")();
 require("./configs/session.config")(app);
 require("./configs/middleware.config")(app);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-//routes
+
 
 const authRoutes = require("./routes/auth.routes");
 app.use("/auth", authRoutes);
