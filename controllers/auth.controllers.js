@@ -38,26 +38,26 @@ exports.login = async (req, res) => {
     const { password, email } = req.body;
     const hasMissingCredentials = !password || !email;
     if (hasMissingCredentials) {
-      return res.status(400).json({ message: "Missing credentials" });
+      return res.status(400).json({ message: "Faltan credenciales" });
     }
 
     const user = await User.findOne({ email });
 
     if (!user) {
-      return res.status(400).json({ message: "User does not exist" });
+      return res.status(400).json({ message: "Usuario no existe" });
     }
 
     const hasCorrectPassword = await bcrypt.compare(password, user.password);
 
     if (!hasCorrectPassword) {
-      return res.status(401).json({ message: "Unauthorize" });
+      return res.status(401).json({ message: "No autorizado" });
     }
 
     req.session.userId = user._id;
 
     return res.status(200).json(user);
   } catch (e) {
-    return res.status(400).json({ message: "Wrong request" });
+    return res.status(400).json({ message: "Error en respuesta del servidor" });
   }
 };
 
