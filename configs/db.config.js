@@ -12,5 +12,3 @@ module.exports = async () => {
   await mongoose.connect(MONGODB_URI, dbOptions);
   console.log("connected to mongo");
 };
-///dU5EQmE3wdtIbmzk 
-//mongodb+srv://trippin-app:dU5EQmE3wdtIbmzk@cluster0.yydqr.mongodb.net/trippinDB?retryWrites=true&w=majority
